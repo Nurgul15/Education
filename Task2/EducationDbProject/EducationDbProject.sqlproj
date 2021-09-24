@@ -69,5 +69,15 @@
     <Build Include="dbo\Tables\Rating.sql" />
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\Video.sql" />
+    <Build Include="dbo\UserRole.sql" />
+    <Build Include="dbo\Tables\ScriptsHistory.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Tables\Script.PostDeployment.sql" />
+    <None Include="dbo\Tables\Script.PostDeploymentInsertUserRoles.sql" />
+    <None Include="dbo\Tables\Script.PostDeploymentAddRoleIdToUser.sql" />
+    <None Include="dbo\Tables\Script.PostDeploymentAlterRoleIdInUser.sql" />
+    <None Include="dbo\Tables\Script.PostDeploymentAddDataToUserRoleId.sql" />
+    <None Include="dbo\Tables\Script.PostDeploymentUpdateRoleId.sql" />
   </ItemGroup>
 </Project>
