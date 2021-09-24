@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EducationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EducationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Channel">
           <Key>
             <PropertyRef Name="Id" />
@@ -55,6 +55,15 @@
           <Property Name="VideoId" Type="int" Nullable="false" />
           <Property Name="Rating" Type="tinyint" Nullable="false" />
         </EntityType>
+        <EntityType Name="ScriptsHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScriptName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="DatabaseName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ExecutionTime" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -64,6 +73,14 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -189,6 +206,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_ToUserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Video_Channel">
           <End Role="Channel" Type="Self.Channel" Multiplicity="1" />
           <End Role="Video" Type="Self.Video" Multiplicity="*" />
@@ -207,7 +236,9 @@
           <EntitySet Name="Playlist" EntityType="Self.Playlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaylistItem" EntityType="Self.PlaylistItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScriptsHistory" EntityType="Self.ScriptsHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Channel_User" Association="Self.FK_Channel_User">
             <End Role="User" EntitySet="User" />
@@ -245,13 +276,16 @@
             <End Role="Video" EntitySet="Video" />
             <End Role="Rating" EntitySet="Rating" />
           </AssociationSet>
+          <AssociationSet Name="FK_User_ToUserRole" Association="Self.FK_User_ToUserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
           <AssociationSet Name="FK_Video_Channel" Association="Self.FK_Video_Channel">
             <End Role="Channel" EntitySet="Channel" />
             <End Role="Video" EntitySet="Video" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EducationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -330,6 +364,8 @@
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_User" FromRole="User" ToRole="Comment" />
           <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlist_User" FromRole="User" ToRole="Playlist" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserRole" Relationship="EducationModel.FK_User_ToUserRole" FromRole="User" ToRole="UserRole" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -519,7 +555,42 @@
             <End Role="Video" EntitySet="Videos" />
             <End Role="Rating" EntitySet="Ratings" />
           </AssociationSet>
+          <EntitySet Name="ScriptsHistories" EntityType="EducationModel.ScriptsHistory" />
+          <EntitySet Name="UserRoles" EntityType="EducationModel.UserRole" />
+          <AssociationSet Name="FK_User_ToUserRole" Association="EducationModel.FK_User_ToUserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ScriptsHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScriptName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ExecutionTime" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="EducationModel.FK_User_ToUserRole" FromRole="UserRole" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_User_ToUserRole">
+          <End Type="EducationModel.UserRole" Role="UserRole" Multiplicity="1" />
+          <End Type="EducationModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -584,6 +655,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="EducationModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -606,6 +678,24 @@
                 <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScriptsHistories">
+            <EntityTypeMapping TypeName="EducationModel.ScriptsHistory">
+              <MappingFragment StoreEntitySet="ScriptsHistory">
+                <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="ScriptName" ColumnName="ScriptName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="EducationModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -87,7 +87,13 @@
     <Compile Include="Rating.cs">
       <DependentUpon>EducationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ScriptsHistory.cs">
+      <DependentUpon>EducationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>EducationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
       <DependentUpon>EducationModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Video.cs">
