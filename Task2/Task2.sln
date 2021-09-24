@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EducationDbProject", "EducationDbProject\EducationDbProject.sqlproj", "{13375857-1F06-4C96-A207-907FCF61F2FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationEdmxProject", "EducationEdmxProject\EducationEdmxProject.csproj", "{C6C3D4AA-3F18-4AEF-9689-CE22C4D2A9F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13375857-1F06-4C96-A207-907FCF61F2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13375857-1F06-4C96-A207-907FCF61F2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13375857-1F06-4C96-A207-907FCF61F2FC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{13375857-1F06-4C96-A207-907FCF61F2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13375857-1F06-4C96-A207-907FCF61F2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13375857-1F06-4C96-A207-907FCF61F2FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C6C3D4AA-3F18-4AEF-9689-CE22C4D2A9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C3D4AA-3F18-4AEF-9689-CE22C4D2A9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C3D4AA-3F18-4AEF-9689-CE22C4D2A9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C3D4AA-3F18-4AEF-9689-CE22C4D2A9F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D01D754E-2065-44C4-9781-A4E27A964799}
+	EndGlobalSection
+EndGlobal

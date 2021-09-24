@@ -1,0 +1,86 @@
+9/24/2021 6:04:42 PM	This log contains information about the import schema operation into project 'EducationDbProject' on computer 'NNN' by user 'nakma'.
+9/24/2021 6:04:43 PM	Import of database schema has started.
+9/24/2021 6:04:46 PM	Gathering database credentials
+9/24/2021 6:04:46 PM	Gathering database options
+9/24/2021 6:04:46 PM	Gathering generic database scoped configuration option
+9/24/2021 6:04:46 PM	Gathering users
+9/24/2021 6:04:46 PM	Gathering roles
+9/24/2021 6:04:46 PM	Gathering application roles
+9/24/2021 6:04:46 PM	Gathering role memberships
+9/24/2021 6:04:46 PM	Gathering filegroups
+9/24/2021 6:04:46 PM	Gathering full-text catalogs
+9/24/2021 6:04:46 PM	Gathering assemblies
+9/24/2021 6:04:46 PM	Gathering certificates
+9/24/2021 6:04:46 PM	Gathering asymmetric keys
+9/24/2021 6:04:46 PM	Gathering symmetric keys
+9/24/2021 6:04:46 PM	Gathering encrypted symmetric keys
+9/24/2021 6:04:46 PM	Gathering schemas
+9/24/2021 6:04:46 PM	Gathering XML schema collections
+9/24/2021 6:04:46 PM	Gathering user-defined data types
+9/24/2021 6:04:46 PM	Gathering user-defined types
+9/24/2021 6:04:46 PM	Gathering table types
+9/24/2021 6:04:46 PM	Gathering unique keys for table types
+9/24/2021 6:04:46 PM	Gathering primary keys for table types
+9/24/2021 6:04:46 PM	Gathering indexes for table types
+9/24/2021 6:04:47 PM	Gathering check constraints for table types
+9/24/2021 6:04:47 PM	Gathering default constraints for table types
+9/24/2021 6:04:47 PM	Gathering partition functions
+9/24/2021 6:04:47 PM	Gathering partition schemes
+9/24/2021 6:04:47 PM	Gathering functions
+9/24/2021 6:04:47 PM	Gathering encrypted functions
+9/24/2021 6:04:47 PM	Gathering aggregates
+9/24/2021 6:04:47 PM	Gathering procedures
+9/24/2021 6:04:47 PM	Gathering encrypted procedures
+9/24/2021 6:04:47 PM	Gathering tables
+9/24/2021 6:04:47 PM	Gathering primary keys
+9/24/2021 6:04:47 PM	Gathering unique constraints
+9/24/2021 6:04:47 PM	Gathering foreign keys
+9/24/2021 6:04:47 PM	Gathering default constraints
+9/24/2021 6:04:47 PM	Gathering check constraints
+9/24/2021 6:04:47 PM	Gathering views
+9/24/2021 6:04:47 PM	Gathering encrypted views
+9/24/2021 6:04:47 PM	Gathering indexes
+9/24/2021 6:04:47 PM	Gathering statistics
+9/24/2021 6:04:47 PM	Gathering full-text index stoplists
+9/24/2021 6:04:47 PM	Gathering search property lists
+9/24/2021 6:04:47 PM	Gathering search properties
+9/24/2021 6:04:47 PM	Gathering full-text indexes
+9/24/2021 6:04:47 PM	Gathering column store indexes
+9/24/2021 6:04:47 PM	Gathering spatial indexes
+9/24/2021 6:04:47 PM	Gathering XML indexes
+9/24/2021 6:04:47 PM	Gathering Selective XML indexes
+9/24/2021 6:04:47 PM	Gathering encrypted triggers
+9/24/2021 6:04:47 PM	Gathering triggers
+9/24/2021 6:04:47 PM	Gathering encrypted and clr ddl triggers
+9/24/2021 6:04:47 PM	Gathering ddl triggers
+9/24/2021 6:04:47 PM	Creating edge constraints
+9/24/2021 6:04:47 PM	Gathering synonyms
+9/24/2021 6:04:47 PM	Gathering defaults
+9/24/2021 6:04:47 PM	Gathering data constraint uddt bindings
+9/24/2021 6:04:47 PM	Gathering rules
+9/24/2021 6:04:47 PM	Gathering data constraint uddt bindings
+9/24/2021 6:04:47 PM	Gathering message types
+9/24/2021 6:04:47 PM	Gathering queues
+9/24/2021 6:04:47 PM	Gathering contracts
+9/24/2021 6:04:47 PM	Gathering services
+9/24/2021 6:04:47 PM	Gathering event notifications
+9/24/2021 6:04:47 PM	Gathering remote service bindings
+9/24/2021 6:04:47 PM	Gathering broker priorities
+9/24/2021 6:04:47 PM	Gathering signatures
+9/24/2021 6:04:47 PM	Gathering data compression options
+9/24/2021 6:04:47 PM	Gathering sequence types
+9/24/2021 6:04:47 PM	Gathering security policies
+9/24/2021 6:04:47 PM	Gather column encryption keys
+9/24/2021 6:04:47 PM	Gathering column master keys
+9/24/2021 6:04:47 PM	Gathering external data sources
+9/24/2021 6:04:47 PM	Gathering external file formats
+9/24/2021 6:04:47 PM	Gathering external tables
+9/24/2021 6:04:47 PM	Gathering extended properties
+9/24/2021 6:04:47 PM	Gathering credentials
+9/24/2021 6:04:47 PM	Gathering logins
+9/24/2021 6:04:47 PM	Gathering server audits
+9/24/2021 6:04:47 PM	Scanning project for duplicate elements
+9/24/2021 6:04:47 PM	Finished duplicate element processing
+9/24/2021 6:04:47 PM	Finished importing database.
+9/24/2021 6:04:47 PM	A summary of the import was saved to the following location: C:\Projects\.Net\Education\Task2\EducationDbProject\Import Schema Logs\EducationDbProject_20210924120442.log
+9/24/2021 6:04:47 PM	Click Finish to continue...
