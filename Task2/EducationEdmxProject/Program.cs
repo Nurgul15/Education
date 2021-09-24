@@ -10,6 +10,14 @@ namespace EducationEdmxProject
     {
         static void Main(string[] args)
         {
+            var context = new EducationEntities();
+            IQueryable<User> users = context.Users;
+            foreach (var user in users)
+            {
+                Console.WriteLine(user.FirstName);
+            }
+
+            Console.ReadLine();
         }
     }
 }

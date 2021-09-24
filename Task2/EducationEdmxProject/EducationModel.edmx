@@ -55,15 +55,6 @@
           <Property Name="VideoId" Type="int" Nullable="false" />
           <Property Name="Rating" Type="tinyint" Nullable="false" />
         </EntityType>
-        <EntityType Name="ScriptsHistory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ScriptName" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="DatabaseName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ExecutionTime" Type="datetime2" Precision="7" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -236,7 +227,6 @@
           <EntitySet Name="Playlist" EntityType="Self.Playlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaylistItem" EntityType="Self.PlaylistItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ScriptsHistory" EntityType="Self.ScriptsHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
@@ -555,22 +545,12 @@
             <End Role="Video" EntitySet="Videos" />
             <End Role="Rating" EntitySet="Ratings" />
           </AssociationSet>
-          <EntitySet Name="ScriptsHistories" EntityType="EducationModel.ScriptsHistory" />
           <EntitySet Name="UserRoles" EntityType="EducationModel.UserRole" />
           <AssociationSet Name="FK_User_ToUserRole" Association="EducationModel.FK_User_ToUserRole">
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ScriptsHistory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ScriptName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DatabaseName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ExecutionTime" Type="DateTime" Nullable="false" Precision="7" />
-        </EntityType>
         <EntityType Name="UserRole">
           <Key>
             <PropertyRef Name="Id" />
@@ -678,16 +658,6 @@
                 <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ScriptsHistories">
-            <EntityTypeMapping TypeName="EducationModel.ScriptsHistory">
-              <MappingFragment StoreEntitySet="ScriptsHistory">
-                <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
-                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
-                <ScalarProperty Name="ScriptName" ColumnName="ScriptName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
