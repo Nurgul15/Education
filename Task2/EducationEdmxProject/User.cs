@@ -28,6 +28,7 @@ namespace EducationEdmxProject
         public string LastName { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public bool IsDeleted { get; set; }
+        public int RoleId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Channel> Channels { get; set; }
@@ -37,5 +38,6 @@ namespace EducationEdmxProject
         public virtual ICollection<Playlist> Playlists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual UserRole UserRole { get; set; }
     }
 }

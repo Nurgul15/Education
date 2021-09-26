@@ -22,6 +22,8 @@
         <AssociationConnector Association="EducationModel.FK_PlaylistItem_Video" ManuallyRouted="false" />
         <AssociationConnector Association="EducationModel.FK_Rating_User" ManuallyRouted="false" />
         <AssociationConnector Association="EducationModel.FK_Rating_Video" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EducationModel.UserRole" Width="1.5" PointX="0.75" PointY="2.75" />
+        <AssociationConnector Association="EducationModel.FK_User_ToUserRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
